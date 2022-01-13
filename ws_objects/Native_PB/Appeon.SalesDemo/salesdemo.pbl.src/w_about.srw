@@ -101,7 +101,7 @@ fontfamily fontfamily = swiss!
 string facename = "Tahoma"
 long textcolor = 33554432
 long backcolor = 67108864
-string text = "Author: Appeon"
+string text = "Author: Monson"
 boolean focusrectangle = false
 end type
 
@@ -176,7 +176,7 @@ end type
 type st_1 from statictext within w_about
 integer x = 370
 integer y = 140
-integer width = 901
+integer width = 919
 integer height = 104
 integer textsize = -16
 integer weight = 400
@@ -186,7 +186,7 @@ fontfamily fontfamily = swiss!
 string facename = "Tahoma"
 long textcolor = 33554432
 long backcolor = 67108864
-string text = "Sales CRM Demo"
+string text = "WayPoint CRM Demo"
 boolean focusrectangle = false
 end type
 
