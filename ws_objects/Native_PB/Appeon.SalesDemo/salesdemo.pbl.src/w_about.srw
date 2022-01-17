@@ -2,6 +2,8 @@
 forward
 global type w_about from w_base
 end type
+type cb_1 from commandbutton within w_about
+end type
 type st_6 from statictext within w_about
 end type
 type st_5 from statictext within w_about
@@ -29,6 +31,7 @@ boolean border = true
 windowtype windowtype = response!
 windowstate windowstate = normal!
 string icon = "image\about.ico"
+cb_1 cb_1
 st_6 st_6
 st_5 st_5
 st_4 st_4
@@ -42,6 +45,7 @@ global w_about w_about
 on w_about.create
 int iCurrent
 call super::create
+this.cb_1=create cb_1
 this.st_6=create st_6
 this.st_5=create st_5
 this.st_4=create st_4
@@ -50,17 +54,19 @@ this.st_2=create st_2
 this.st_1=create st_1
 this.p_1=create p_1
 iCurrent=UpperBound(this.Control)
-this.Control[iCurrent+1]=this.st_6
-this.Control[iCurrent+2]=this.st_5
-this.Control[iCurrent+3]=this.st_4
-this.Control[iCurrent+4]=this.st_3
-this.Control[iCurrent+5]=this.st_2
-this.Control[iCurrent+6]=this.st_1
-this.Control[iCurrent+7]=this.p_1
+this.Control[iCurrent+1]=this.cb_1
+this.Control[iCurrent+2]=this.st_6
+this.Control[iCurrent+3]=this.st_5
+this.Control[iCurrent+4]=this.st_4
+this.Control[iCurrent+5]=this.st_3
+this.Control[iCurrent+6]=this.st_2
+this.Control[iCurrent+7]=this.st_1
+this.Control[iCurrent+8]=this.p_1
 end on
 
 on w_about.destroy
 call super::destroy
+destroy(this.cb_1)
 destroy(this.st_6)
 destroy(this.st_5)
 destroy(this.st_4)
@@ -86,6 +92,24 @@ choose case env.pbfixesrevision
 		ls_detailversion = 'R3'
 end choose
 st_4.text = 'Version: PB20' + string(env.pbmajorrevision)+ls_detailversion + ' ' + string(env.pbbuildnumber)
+end event
+
+type cb_1 from commandbutton within w_about
+integer x = 1170
+integer y = 832
+integer width = 457
+integer height = 132
+integer taborder = 10
+integer textsize = -12
+integer weight = 400
+fontcharset fontcharset = ansi!
+fontpitch fontpitch = variable!
+fontfamily fontfamily = swiss!
+string facename = "Tahoma"
+string text = "Button"
+end type
+
+event clicked;messagebox('Welcome', 'Todays the day!')
 end event
 
 type st_6 from statictext within w_about
